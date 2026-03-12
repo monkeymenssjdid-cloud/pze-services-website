@@ -1,19 +1,42 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Star, MapPin, Loader2 } from 'lucide-react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { Label } from './ui/label';
-import { mockReviews } from '../mockData';
 import { toast } from 'sonner';
+import axios from 'axios';
+
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const API = `${BACKEND_URL}/api`;
 
 const Reviews = () => {
+  const [reviews, setReviews] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [formData, setFormData] = useState({
     name: '',
     location: '',
     review: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Fetch approved reviews on component mount
+  useEffect(() => {
+    fetchReviews();
+  }, []);
+
+  const fetchReviews = async () => {
+    try {
+      const response = await axios.get(`${API}/reviews`);
+      setReviews(response.data);
+    } catch (error) {
+      console.error('Error fetching reviews:', error);
+      // Fallback to empty array if fetch fails
+      setReviews([]);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -30,8 +53,13 @@ const Reviews = () => {
 
     setIsSubmitting(true);
 
-    // Mock API call - will be replaced with real backend
-    setTimeout(() => {
+    try {
+      await axios.post(`${API}/reviews`, {
+        name: formData.name,
+        location: formData.location || null,
+        review: formData.review
+      });
+
       toast.success('Thank you! Your review has been submitted and is pending approval.');
       
       // Reset form
@@ -40,8 +68,12 @@ const Reviews = () => {
         location: '',
         review: ''
       });
+    } catch (error) {
+      console.error('Error submitting review:', error);
+      toast.error(error.response?.data?.detail || 'Failed to submit review. Please try again.');
+    } finally {
       setIsSubmitting(false);
-    }, 1500);
+    }
   };
 
   const renderStars = (rating) => {
@@ -71,9 +103,13 @@ const Reviews = () => {
 
           {/* Reviews Display */}
           <div className="mb-16">
-            {mockReviews.length > 0 ? (
+            {isLoading ? (
+              <div className="flex justify-center items-center py-12">
+                <Loader2 className="w-8 h-8 animate-spin text-emerald-600" />
+              </div>
+            ) : reviews.length > 0 ? (
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {mockReviews.map((review) => (
+                {reviews.map((review) => (
                   <div 
                     key={review.id}
                     className="bg-slate-50 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow border border-slate-200"

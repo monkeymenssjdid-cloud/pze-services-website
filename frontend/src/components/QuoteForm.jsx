@@ -7,6 +7,10 @@ import { Label } from './ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 import { serviceOptions } from '../mockData';
 import { toast } from 'sonner';
+import axios from 'axios';
+
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const API = `${BACKEND_URL}/api`;
 
 const QuoteForm = () => {
   const [formData, setFormData] = useState({
@@ -58,8 +62,30 @@ const QuoteForm = () => {
 
     setIsSubmitting(true);
 
-    // Mock API call - will be replaced with real backend
-    setTimeout(() => {
+    try {
+      // Prepare form data for multipart/form-data
+      const submitData = new FormData();
+      submitData.append('name', formData.name);
+      submitData.append('phone', formData.phone);
+      submitData.append('service', formData.service);
+      submitData.append('address', formData.address);
+      submitData.append('description', formData.description);
+      
+      if (formData.customService) {
+        submitData.append('custom_service', formData.customService);
+      }
+      
+      if (selectedFile) {
+        submitData.append('photo', selectedFile);
+      }
+
+      // Submit to backend API
+      await axios.post(`${API}/quotes`, submitData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+
       toast.success('Quote request submitted successfully! We will contact you soon.');
       
       // Reset form
@@ -72,8 +98,17 @@ const QuoteForm = () => {
         customService: ''
       });
       setSelectedFile(null);
+      
+      // Reset file input
+      const fileInput = document.getElementById('photo');
+      if (fileInput) fileInput.value = '';
+      
+    } catch (error) {
+      console.error('Error submitting quote:', error);
+      toast.error(error.response?.data?.detail || 'Failed to submit quote. Please try again.');
+    } finally {
       setIsSubmitting(false);
-    }, 1500);
+    }
   };
 
   return (

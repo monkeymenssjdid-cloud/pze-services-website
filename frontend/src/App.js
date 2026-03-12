@@ -1,5 +1,6 @@
 import React from "react";
 import "@/App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Toaster } from "@/components/ui/sonner";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
@@ -9,10 +10,11 @@ import QuoteForm from "@/components/QuoteForm";
 import Reviews from "@/components/Reviews";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import AdminPanel from "@/components/AdminPanel";
 
-function App() {
+const HomePage = () => {
   return (
-    <div className="App">
+    <>
       <Header />
       <main>
         <Hero />
@@ -23,6 +25,19 @@ function App() {
         <Contact />
       </main>
       <Footer />
+    </>
+  );
+};
+
+function App() {
+  return (
+    <div className="App">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/admin" element={<AdminPanel />} />
+        </Routes>
+      </BrowserRouter>
       <Toaster position="top-right" />
     </div>
   );
