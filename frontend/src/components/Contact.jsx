@@ -31,29 +31,53 @@ const Contact = () => {
               <div className="space-y-4">
                 <div>
                   <p className="text-sm text-slate-400 mb-1">Ricardo</p>
-                  <a 
-                    href="tel:+17476090433"
-                    className="text-2xl font-bold text-emerald-400 hover:text-emerald-300 transition-colors block"
+                  <button
+                    onClick={() => {
+                      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+                      if (isMobile) {
+                        window.location.href = 'tel:+17476090433';
+                      } else {
+                        navigator.clipboard.writeText('(747) 609-0433');
+                        alert('📋 Phone number copied!\n\n(747) 609-0433\n\nPaste it into your phone app.');
+                      }
+                    }}
+                    className="text-2xl font-bold text-emerald-400 hover:text-emerald-300 transition-colors block cursor-pointer"
                   >
                     {contactData.ricardo}
-                  </a>
+                  </button>
                 </div>
                 <div>
                   <p className="text-sm text-slate-400 mb-1">Edgar</p>
-                  <a 
-                    href="tel:+18053253197"
-                    className="text-2xl font-bold text-emerald-400 hover:text-emerald-300 transition-colors block"
+                  <button
+                    onClick={() => {
+                      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+                      if (isMobile) {
+                        window.location.href = 'tel:+18053253197';
+                      } else {
+                        navigator.clipboard.writeText('(805) 325-3197');
+                        alert('📋 Phone number copied!\n\n(805) 325-3197\n\nPaste it into your phone app.');
+                      }
+                    }}
+                    className="text-2xl font-bold text-emerald-400 hover:text-emerald-300 transition-colors block cursor-pointer"
                   >
                     {contactData.edgar}
-                  </a>
+                  </button>
                 </div>
               </div>
-              <a href="tel:+17476090433" className="block mt-6">
-                <Button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white">
-                  <Phone className="w-4 h-4 mr-2" />
-                  Call Now
-                </Button>
-              </a>
+              <Button 
+                onClick={() => {
+                  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+                  if (isMobile) {
+                    window.location.href = 'tel:+17476090433';
+                  } else {
+                    alert('📞 Call Ricardo: (747) 609-0433\n\nClick the phone numbers above to copy them!');
+                  }
+                }}
+                className="w-full mt-6 bg-emerald-600 hover:bg-emerald-700 text-white"
+              >
+                <Phone className="w-4 h-4 mr-2" />
+                Call Now
+              </Button>
             </div>
 
             {/* Service Area & Social */}
@@ -99,11 +123,19 @@ const Contact = () => {
               >
                 Get a Quote
               </Button>
-              <a href="tel:+17476090433" className="block">
-                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-6">
-                  Call Now
-                </Button>
-              </a>
+              <Button 
+                onClick={() => {
+                  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+                  if (isMobile) {
+                    window.location.href = 'tel:+17476090433';
+                  } else {
+                    alert('📞 Call Ricardo: (747) 609-0433\n\nClick phone numbers to copy them!');
+                  }
+                }}
+                className="bg-blue-600 hover:bg-blue-700 text-white py-6"
+              >
+                Call Now
+              </Button>
               <Button 
                 onClick={() => {
                   const element = document.getElementById('reviews');

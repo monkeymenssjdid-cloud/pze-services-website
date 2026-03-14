@@ -62,15 +62,21 @@ const Hero = () => {
               Get a Free Quote
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
-            <a href="tel:+17476090433">
-              <Button 
-                size="lg"
-                variant="outline"
-                className="border-2 border-white text-white hover:bg-white hover:text-slate-900 text-lg px-8 py-6 w-full"
-              >
-                Call Now
-              </Button>
-            </a>
+            <Button 
+              onClick={() => {
+                const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+                if (isMobile) {
+                  window.location.href = 'tel:+17476090433';
+                } else {
+                  alert('📞 Call Ricardo: (747) 609-0433\n\nOr scroll down to the Contact section for more options!');
+                }
+              }}
+              size="lg"
+              variant="outline"
+              className="border-2 border-white text-white hover:bg-white hover:text-slate-900 text-lg px-8 py-6"
+            >
+              Call Now
+            </Button>
           </div>
 
           {/* Pricing Note */}
