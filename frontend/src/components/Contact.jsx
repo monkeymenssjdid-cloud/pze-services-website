@@ -32,8 +32,8 @@ const Contact = () => {
                 <div>
                   <p className="text-sm text-slate-400 mb-1">Ricardo</p>
                   <a 
-                    href={`tel:${contactData.ricardo.replace(/\D/g, '')}`}
-                    className="text-2xl font-bold text-emerald-400 hover:text-emerald-300 transition-colors"
+                    href="tel:+17476090433"
+                    className="text-2xl font-bold text-emerald-400 hover:text-emerald-300 transition-colors block"
                   >
                     {contactData.ricardo}
                   </a>
@@ -41,20 +41,19 @@ const Contact = () => {
                 <div>
                   <p className="text-sm text-slate-400 mb-1">Edgar</p>
                   <a 
-                    href={`tel:${contactData.edgar.replace(/\D/g, '')}`}
-                    className="text-2xl font-bold text-emerald-400 hover:text-emerald-300 transition-colors"
+                    href="tel:+18053253197"
+                    className="text-2xl font-bold text-emerald-400 hover:text-emerald-300 transition-colors block"
                   >
                     {contactData.edgar}
                   </a>
                 </div>
               </div>
-              <Button 
-                onClick={() => window.location.href = `tel:${contactData.ricardo.replace(/\D/g, '')}`}
-                className="w-full mt-6 bg-emerald-600 hover:bg-emerald-700 text-white"
-              >
-                <Phone className="w-4 h-4 mr-2" />
-                Call Now
-              </Button>
+              <a href="tel:+17476090433" className="block mt-6">
+                <Button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white">
+                  <Phone className="w-4 h-4 mr-2" />
+                  Call Now
+                </Button>
+              </a>
             </div>
 
             {/* Service Area & Social */}
@@ -100,12 +99,11 @@ const Contact = () => {
               >
                 Get a Quote
               </Button>
-              <Button 
-                onClick={() => window.location.href = `tel:${contactData.ricardo.replace(/\D/g, '')}`}
-                className="bg-blue-600 hover:bg-blue-700 text-white py-6"
-              >
-                Call Now
-              </Button>
+              <a href="tel:+17476090433" className="block">
+                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-6">
+                  Call Now
+                </Button>
+              </a>
               <Button 
                 onClick={() => {
                   const element = document.getElementById('reviews');

@@ -62,14 +62,15 @@ const Hero = () => {
               Get a Free Quote
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
-            <Button 
-              onClick={() => window.location.href = 'tel:7476090433'}
-              size="lg"
-              variant="outline"
-              className="border-2 border-white text-white hover:bg-white hover:text-slate-900 text-lg px-8 py-6"
-            >
-              Call Now
-            </Button>
+            <a href="tel:+17476090433">
+              <Button 
+                size="lg"
+                variant="outline"
+                className="border-2 border-white text-white hover:bg-white hover:text-slate-900 text-lg px-8 py-6 w-full"
+              >
+                Call Now
+              </Button>
+            </a>
           </div>
 
           {/* Pricing Note */}
