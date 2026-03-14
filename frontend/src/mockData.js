@@ -25,38 +25,32 @@ export const servicesData = [
 export const galleryImages = [
   {
     id: 1,
-    url: "https://images.pexels.com/photos/9115461/pexels-photo-9115461.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    alt: "Professional moving truck",
-    category: "moving"
+    url: "https://customer-assets.emergentagent.com/job_yard-cleanup-2/artifacts/nmj35ytq_IMG_2946.jpeg",
+    alt: "Before - Overgrown yard with weeds",
+    category: "yard-work"
   },
   {
     id: 2,
-    url: "https://images.unsplash.com/photo-1600518464441-9154a4dea21b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzJ8MHwxfHNlYXJjaHwyfHxtb3ZpbmclMjB0cnVja3xlbnwwfHx8fDE3NzMyNzQ1MTZ8MA&ixlib=rb-4.1.0&q=85",
-    alt: "Workers loading furniture",
-    category: "moving"
+    url: "https://customer-assets.emergentagent.com/job_yard-cleanup-2/artifacts/3hqeuepy_B37CB598-81CD-4788-9622-0319F14DFD57.jpeg",
+    alt: "After - Beautiful freshly mowed lawn",
+    category: "yard-work"
   },
   {
     id: 3,
-    url: "https://images.unsplash.com/photo-1713730060332-2e478ce2e318?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NTJ8MHwxfHNlYXJjaHwzfHxqdW5rJTIwcmVtb3ZhbHxlbnwwfHx8fDE3NzMyNzQ1MjB8MA&ixlib=rb-4.1.0&q=85",
-    alt: "Junk removal service",
+    url: "https://customer-assets.emergentagent.com/job_yard-cleanup-2/artifacts/o5d9i1kq_IMG_2947.jpeg",
+    alt: "PZE truck loaded with junk removal",
     category: "junk-hauling"
   },
   {
     id: 4,
-    url: "https://images.unsplash.com/photo-1615088258876-39b30635a799?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NTJ8MHwxfHNlYXJjaHwyfHxqdW5rJTIwcmVtb3ZhbHxlbnwwfHx8fDE3NzMyNzQ1MjB8MA&ixlib=rb-4.1.0&q=85",
-    alt: "Outdoor cleanup work",
+    url: "https://customer-assets.emergentagent.com/job_yard-cleanup-2/artifacts/76uwlyvk_CD785BF6-5D53-404B-9A1F-2948C363B6E8.jpeg",
+    alt: "Pool area cleanup and maintenance",
     category: "cleanup"
   },
   {
     id: 5,
-    url: "https://images.unsplash.com/photo-1734079692079-172d8243ebd3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNTl8MHwxfHNlYXJjaHwzfHxsYW5kc2NhcGluZyUyMHdvcmt8ZW58MHx8fHwxNzczMjc0NTI2fDA&ixlib=rb-4.1.0&q=85",
-    alt: "Professional yard work",
-    category: "yard-work"
-  },
-  {
-    id: 6,
-    url: "https://images.unsplash.com/photo-1517048915767-3daf31cb5be4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNTl8MHwxfHNlYXJjaHwyfHxsYW5kc2NhcGluZyUyMHdvcmt8ZW58MHx8fHwxNzczMjc0NTI2fDA&ixlib=rb-4.1.0&q=85",
-    alt: "Landscaping service",
+    url: "https://customer-assets.emergentagent.com/job_yard-cleanup-2/artifacts/ysnicg22_A2BD4D38-52AE-4BFB-B461-E0918ED3EDBA.jpeg",
+    alt: "Yard and alley cleanup service",
     category: "yard-work"
   }
 ];

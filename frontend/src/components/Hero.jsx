@@ -16,7 +16,7 @@ const Hero = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="https://images.unsplash.com/photo-1600518464441-9154a4dea21b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzJ8MHwxfHNlYXJjaHwyfHxtb3ZpbmclMjB0cnVja3xlbnwwfHx8fDE3NzMyNzQ1MTZ8MA&ixlib=rb-4.1.0&q=85"
+          src="https://customer-assets.emergentagent.com/job_yard-cleanup-2/artifacts/o5d9i1kq_IMG_2947.jpeg"
           alt="PZE Services"
           className="w-full h-full object-cover"
         />
